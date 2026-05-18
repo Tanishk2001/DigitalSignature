@@ -1,0 +1,130 @@
+{
+  "info": {
+    "name": "Digital Signature API",
+    "description": "Collection for testing Digital Signature API",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": ["Content-Type: application/json"],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"John Doe\",\"email\":\"john@example.com\",\"password\":\"password123\"}"
+            },
+            "url": "http://localhost:5000/api/auth/register"
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": ["Content-Type: application/json"],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"john@example.com\",\"password\":\"password123\"}"
+            },
+            "url": "http://localhost:5000/api/auth/login"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Documents",
+      "item": [
+        {
+          "name": "Get Documents",
+          "request": {
+            "method": "GET",
+            "header": ["Authorization: Bearer YOUR_TOKEN"],
+            "url": "http://localhost:5000/api/documents"
+          }
+        },
+        {
+          "name": "Get Document",
+          "request": {
+            "method": "GET",
+            "header": ["Authorization: Bearer YOUR_TOKEN"],
+            "url": "http://localhost:5000/api/documents/DOCUMENT_ID"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Signatures",
+      "item": [
+        {
+          "name": "Save Signature",
+          "request": {
+            "method": "POST",
+            "header": ["Authorization: Bearer YOUR_TOKEN", "Content-Type: application/json"],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"documentId\":\"DOC_ID\",\"coordinates\":{\"page\":0,\"x\":100,\"y\":200},\"signatureText\":\"Signed by John\"}"
+            },
+            "url": "http://localhost:5000/api/signatures/save"
+          }
+        },
+        {
+          "name": "Get Signatures",
+          "request": {
+            "method": "GET",
+            "header": ["Authorization: Bearer YOUR_TOKEN"],
+            "url": "http://localhost:5000/api/signatures/DOCUMENT_ID"
+          }
+        },
+        {
+          "name": "Update Signature Status",
+          "request": {
+            "method": "PATCH",
+            "header": ["Authorization: Bearer YOUR_TOKEN", "Content-Type: application/json"],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"status\":\"signed\"}"
+            },
+            "url": "http://localhost:5000/api/signatures/SIGNATURE_ID"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PDF",
+      "item": [
+        {
+          "name": "Generate Signed PDF",
+          "request": {
+            "method": "POST",
+            "header": ["Authorization: Bearer YOUR_TOKEN"],
+            "url": "http://localhost:5000/api/pdf/generate-signed/DOCUMENT_ID"
+          }
+        },
+        {
+          "name": "Download Document",
+          "request": {
+            "method": "GET",
+            "header": ["Authorization: Bearer YOUR_TOKEN"],
+            "url": "http://localhost:5000/api/pdf/download/DOCUMENT_ID"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Audit",
+      "item": [
+        {
+          "name": "Get Audit Trail",
+          "request": {
+            "method": "GET",
+            "header": ["Authorization: Bearer YOUR_TOKEN"],
+            "url": "http://localhost:5000/api/audit/user/trail"
+          }
+        }
+      ]
+    }
+  ]
+}

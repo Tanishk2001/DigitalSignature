@@ -1,0 +1,246 @@
+{
+  "annotations": [
+    {
+      "kind": "AnnotationQuery",
+      "spec": {
+        "builtIn": true,
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "query": {
+          "datasource": {
+            "name": "-- Grafana --"
+          },
+          "group": "grafana",
+          "kind": "DataQuery",
+          "spec": {},
+          "version": "v0"
+        }
+      }
+    }
+  ],
+  "cursorSync": "Off",
+  "editable": true,
+  "elements": {
+    "panel-1": {
+      "kind": "Panel",
+      "spec": {
+        "data": {
+          "kind": "QueryGroup",
+          "spec": {
+            "queries": [
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "afo3yh47efnr4b"
+                    },
+                    "group": "yesoreyeram-infinity-datasource",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "columns": [],
+                      "data": "[\n  {\"Product\": \"Product A\", \"Month\": \"Feb, 2026\", \"Total_Cost\": 120, \"MoM_Delta\": 20},\n  {\"Product\": \"Product A\", \"Month\": \"Mar, 2026\", \"Total_Cost\": 90, \"MoM_Delta\": -30},\n  {\"Product\": \"Product A\", \"Month\": \"Apr, 2026\", \"Total_Cost\": 95, \"MoM_Delta\": 5},\n  {\"Product\": \"Product A\", \"Month\": \"May, 2026\", \"Total_Cost\": 80, \"MoM_Delta\": -15},\n  {\"Product\": \"Product B\", \"Month\": \"Feb, 2026\", \"Total_Cost\": 450, \"MoM_Delta\": -50},\n  {\"Product\": \"Product B\", \"Month\": \"Mar, 2026\", \"Total_Cost\": 470, \"MoM_Delta\": 20},\n  {\"Product\": \"Product B\", \"Month\": \"Apr, 2026\", \"Total_Cost\": 470, \"MoM_Delta\": 0},\n  {\"Product\": \"Product B\", \"Month\": \"May, 2026\", \"Total_Cost\": 430, \"MoM_Delta\": -40}\n]",
+                      "filters": [],
+                      "format": "table",
+                      "global_query_id": "",
+                      "parser": "backend",
+                      "root_selector": "",
+                      "source": "inline",
+                      "type": "json",
+                      "url": "",
+                      "url_options": {
+                        "data": "",
+                        "method": "GET"
+                      }
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "A"
+                }
+              }
+            ],
+            "queryOptions": {},
+            "transformations": []
+          }
+        },
+        "description": "",
+        "id": 1,
+        "links": [],
+        "title": "New panel",
+        "vizConfig": {
+          "group": "marcusolsson-dynamictext-panel",
+          "kind": "VizConfig",
+          "spec": {
+            "fieldConfig": {
+              "defaults": {
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "options": {
+              "afterRender": "",
+              "content": "<table style=\"width:100%;border-collapse:collapse;color:white;\">\n  <tr>\n    <th style=\"border:1px solid #444;padding:8px;\">Product\\Month</th>\n    <th style=\"border:1px solid #444;padding:8px;\">Feb, 2026</th>\n    <th style=\"border:1px solid #444;padding:8px;\">Mar, 2026</th>\n    <th style=\"border:1px solid #444;padding:8px;\">Apr, 2026</th>\n    <th style=\"border:1px solid #444;padding:8px;\">May, 2026</th>\n  </tr>\n  {{#each data}}\n  {{#if (eq this.Month \"Feb, 2026\")}}\n  <tr>\n    <td style=\"border:1px solid #444;padding:8px;\">{{this.Product}}</td>\n    {{/if}}\n    <td\n      style=\"border:1px solid #444;padding:8px;background-color:{{#if (gt this.MoM_Delta 0)}}#2d6a2d{{else if (lt this.MoM_Delta 0)}}#6a2d2d{{else}}#444{{/if}}\">\n      {{this.Total_Cost}}\n    </td>\n    {{#if (eq this.Month \"May, 2026\")}}\n  </tr>\n  {{/if}}\n  {{/each}}\n</table>",
+              "contentPartials": [],
+              "defaultContent": "The query didn't return any results.",
+              "editor": {
+                "format": "auto",
+                "language": "html"
+              },
+              "editors": [],
+              "externalStyles": [],
+              "helpers": "",
+              "renderMode": "allRows",
+              "styles": "",
+              "wrap": true
+            }
+          },
+          "version": "6.2.3"
+        }
+      }
+    }
+  },
+  "layout": {
+    "kind": "GridLayout",
+    "spec": {
+      "items": [
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-1"
+            },
+            "height": 8,
+            "width": 12,
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    }
+  },
+  "links": [],
+  "liveNow": false,
+  "preferences": {
+    "layout": {
+      "kind": "GridLayout",
+      "spec": {
+        "items": []
+      }
+    }
+  },
+  "preload": false,
+  "tags": [],
+  "timeSettings": {
+    "autoRefresh": "",
+    "autoRefreshIntervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "fiscalYearStartMonth": 0,
+    "from": "now-6h",
+    "hideTimepicker": false,
+    "timezone": "browser",
+    "to": "now"
+  },
+  "title": "New dashboard",
+  "variables": [
+    {
+      "kind": "QueryVariable",
+      "spec": {
+        "allowCustomValue": true,
+        "current": {
+          "text": "webapp-v1",
+          "value": "webapp-v1"
+        },
+        "definition": "",
+        "hide": "dontHide",
+        "includeAll": false,
+        "label": "deployment_name",
+        "multi": false,
+        "name": "deployment_name",
+        "options": [],
+        "query": {
+          "datasource": {
+            "name": "afo3yh47efnr4b"
+          },
+          "group": "yesoreyeram-infinity-datasource",
+          "kind": "DataQuery",
+          "spec": {
+            "alias": "",
+            "bucketAggs": [
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "editorType": "builder",
+            "infinityQuery": {
+              "columns": [],
+              "data": "deployment\nwebapp-v1\napi-gateway\ndbtest1\n1233445\nworker-service",
+              "filters": [],
+              "format": "table",
+              "parser": "backend",
+              "refId": "",
+              "root_selector": "",
+              "source": "inline",
+              "type": "csv",
+              "url": "",
+              "url_options": {
+                "data": "",
+                "method": "GET"
+              }
+            },
+            "meta": {
+              "textField": "deployment",
+              "valueField": "deployment"
+            },
+            "metrics": [
+              {
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "",
+            "queryType": "infinity",
+            "refId": "variable",
+            "timeField": "@timestamp"
+          },
+          "version": "v0"
+        },
+        "refresh": "onDashboardLoad",
+        "regex": "/^(?!\\d+$).+/",
+        "regexApplyTo": "value",
+        "skipUrlSync": false,
+        "sort": "disabled"
+      }
+    }
+  ]
+}
